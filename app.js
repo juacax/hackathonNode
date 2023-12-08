@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import fileUpload from 'express-fileupload';
 import router from './routes/index.routes.js';
 import errorController from './controllers/error/index.controller.js';
 
@@ -8,8 +9,9 @@ const { HTTP_PORT } = process.env;
 const app = express();
 
 app.use(express.json());
+app.use(express.static(process.env.UPLOADS_DIR));
+app.use(fileUpload());
 app.use(router);
-
 app.use(errorController)
 
 app.listen(HTTP_PORT, () =>{

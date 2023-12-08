@@ -4,6 +4,9 @@ import registerSendEmail from './registerSendEmail.service.js';
 import getByRegistrationCode from './getByRegistrationCode.service.js';
 import activate from './activate.service.js';
 import getById from './getById.service.js';
+import updateAvatar from './updateAvatar.service.js';
+import updateRecoverPassCode from './updateRecoverPassCode.service.js';
+import passwordRecoverSendMail from './passwordRecoverSendMail.service.js';
 
 export default {
     register,
@@ -11,5 +14,8 @@ export default {
     registerSendEmail,
     getByRegistrationCode,
     activate,
-    getById
+    getById,
+    updateAvatar,
+    updateRecoverPassCode,
+    passwordRecoverSendMail
 }
