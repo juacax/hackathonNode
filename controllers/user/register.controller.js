@@ -2,7 +2,7 @@ import randomstring from 'randomstring';
 import bcrypt from 'bcrypt';
 import validateSchema from '../../helpers/validate.helper.js';
 import schema from '../../schemas/user/register.schema.js';
-import userSevice from '../../services/user/index.service.js';
+import userService from '../../services/user/index.service.js';
 import errors from '../../helpers/errors.helper.js';
 
 const main = async (req,res,next) => {
@@ -15,7 +15,7 @@ const main = async (req,res,next) => {
         const registrationCode = randomstring.generate(30);
 
         //Validamos que no exista un usuario ya registrado
-        const users = await userSevice.getByUsernameOrEmail(email, username);
+        const users = await userService.getByUsernameOrEmail(email, username);
         if(users.length > 0) {
             errors.conflictError('El username o email ya se encuentra registrado','USER_REGISTER_ERROR');
         }
@@ -23,10 +23,10 @@ const main = async (req,res,next) => {
         //Encriptamos la contraseña
         const passwordEncoded = await bcrypt.hash(password,5)
         //Registramos
-        await userSevice.register(email, username, passwordEncoded, registrationCode);
+        await userService.register(email, username, passwordEncoded, registrationCode);
 
         //enviamos Email
-        await userSevice.registerSendEmail(email, registrationCode);
+        await userService.registerSendEmail(email, registrationCode);
 
         res.send({
             status: "success",
