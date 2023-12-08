@@ -23,8 +23,14 @@ const errorMsgPassword = {
         'La contraseña debe contener al menos una mayúscula, una minúscula, un número y un símbolo de puntuación para "{#key}"',
 };
 
+const errorMsgVote ={
+    'number.min': 'El voto debe ser mayor o igual que 1',
+    'number.max': 'El voto debe ser menor o igual que 5',
+}
+
 export default {
     errorMsg,
     errorMsgUsername,
-    errorMsgPassword
+    errorMsgPassword,
+    errorMsgVote
 };
