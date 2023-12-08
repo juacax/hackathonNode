@@ -6,6 +6,7 @@ import publicProfile from './publicProfile.controller.js';
 import editAvatar from './editAvatar.controller.js';
 import passwordRecover from './passwordRecover.controller.js';
 import passwordUpdateByRecover from './passwordUpdateByRecover.controller.js';
+import passwordChange from './passwordChange.controller.js';
 
 export default {
     register,
@@ -15,5 +16,6 @@ export default {
     publicProfile,
     editAvatar,
     passwordRecover,
-    passwordUpdateByRecover
+    passwordUpdateByRecover,
+    passwordChange
 };

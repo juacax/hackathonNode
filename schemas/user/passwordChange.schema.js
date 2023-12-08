@@ -1,14 +1,14 @@
 import joi from 'joi'
 import joiMsg from '../joi.messages.js'
 
-const passwordUpdateByRecoverSchema = joi.object({
-  email: joi.string().email().required().messages(joiMsg.errorMsg),
-  recoverPassCode: joi
+const passwordChangeSchema = joi.object({
+  oldPass: joi
     .string()
-    .min(10)
-    .max(10)
+    .pattern(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[¡!$%^&*()_+|~=`{}:";'<>¿?,.])[a-zA-Z0-9¡!$%^&*()_+|~=`{}:";'<>¿?,.]{8,}$/
+    )
     .required()
-    .messages(joiMsg.errorMsg),
+    .messages({ ...joiMsg.errorMsg, ...joiMsg.errorMsgPassword }),
   newPass: joi
     .string()
     .pattern(
@@ -18,4 +18,4 @@ const passwordUpdateByRecoverSchema = joi.object({
     .messages({ ...joiMsg.errorMsg, ...joiMsg.errorMsgPassword })
 })
 
-export default passwordUpdateByRecoverSchema
+export default passwordChangeSchema
