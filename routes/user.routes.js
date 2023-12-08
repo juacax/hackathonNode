@@ -10,5 +10,6 @@ router.post('/users/register', userController.register)
 router.get('/users/validate/:registrationCode', userController.validate)
 router.post('/users/login', userController.login)
 router.get('/users/profile', authUser, userExists, userController.profile)
+router.get('/users/profile/:userId', userExists, userController.publicProfile)
 
 export default router;
