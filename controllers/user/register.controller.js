@@ -7,8 +7,10 @@ const main = async (req,res,next) => {
         await validateSchema(schema, req.body);
 
         const {email, username, password} = req.body;
-        
+
     } catch (error) {
         next(error);
     }  
 };
+
+export default main;
