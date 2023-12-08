@@ -55,7 +55,6 @@ const schemaValidationError = (msg = 'Error en la validación de los datos')=>{
   badRequestError(msg);
 }
 
-
 export default {
   conflictError,
   notFoundError,

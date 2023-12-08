@@ -1,7 +1,7 @@
 import getPool from '../../db/getPool.js';
 import errors from '../../helpers/errors.helper.js';
 
-const main = async (username, password,email, registrationCode) =>{
+const main = async (email, username, password, registrationCode) =>{
     try {
         const pool = await getPool();
 
