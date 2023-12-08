@@ -7,6 +7,7 @@ dotenv.config();
 const { HTTP_PORT } = process.env;
 const app = express();
 
+app.use(express.json());
 app.use(router);
 
 app.use(errorController)
